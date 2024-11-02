@@ -8,7 +8,7 @@ const Header = () => {
                 <div className="w-[4%] min-w-[30px]">
                     <img src="/images/brand_logo.png" alt="logo" width={'100%'} />
                 </div>
-                <ul className="flex gap-6 items-center">
+                <ul className="flex gap-6 items-center text-[1.8rem]">
                     <li><a href="#">Menu</a></li>
                     <li><a href="#">Location</a></li>
                     <li><a href="#">About</a></li>
