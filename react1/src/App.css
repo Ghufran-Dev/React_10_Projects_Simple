@@ -19,7 +19,7 @@ html,body{
     scroll-behavior: smooth;
 }
 .container{
-    width: 96%;
+    max-width: 96%;
     margin: 0 auto;
 }
 h1,h2,h3,h4,h5,h6,p,ul{
