@@ -16,6 +16,9 @@ const ContactForm = () => {
     setName(e.target[0].value)
     setEmail(e.target[1].value)
     setAddress(e.target[2].value)
+    e.target[0].value = ""
+    e.target[1].value = ""
+    e.target[2].value = ""
   })
   return (
     <div className='myContainer'>
