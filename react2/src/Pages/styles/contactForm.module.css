@@ -1,0 +1,30 @@
+:root{
+    --radius:5px;
+}
+
+.formControl {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.formControl input {
+    height: 3.2rem;
+    border: 2px solid black;
+    border-radius: var(--radius);
+    padding: 0 1rem;
+}
+
+.formControl label {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background-color: white;
+    color: black;
+    padding: 0 .4rem;
+}
+textarea{
+    border: 2px solid black;
+    border-radius: var(--radius);
+}
