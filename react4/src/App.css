@@ -50,16 +50,42 @@ ul{
 
 /*git reset HEAD~1
 git push -f origin main */
+.cardbg{
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 1rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, .4);
+    backdrop-filter: blur(1rem);
 
+        /* backdrop-filter: grayscale(80%); */
+        /* backdrop-filter: sepia(80%); */
+        /* backdrop-filter: saturate(8); */
+        /* backdrop-filter: hue-rotate(80deg); */
+        /* backdrop-filter: invert(80%); */
+}
+.myGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem,1fr));
+    gap: 2rem;
+    place-items: center;
+    padding-top: 3rem;
 
-@media (max-width:1024px){
+    /* place-items-center gap-10 py-10  */
+}
+
+@media (max-width:1445px){
     html{
         font-size: 55%;
     }
 }
-@media (max-width:768px){
+@media (max-width:1024px){
     html{
         font-size: 45%;
+    }
+}
+@media (max-width:768px){
+    html{
+        font-size: 40%;
     }
 }
 @media (max-width:550px){
@@ -70,5 +96,12 @@ git push -f origin main */
 @media (max-width:350px){
     html{
         font-size: 30%;
+    }
+}
+@media (max-width:430px){
+    .headerCenter{
+        flex-direction: column;
+        margin: 0 auto;
+        gap: 1.6rem;
     }
 }
