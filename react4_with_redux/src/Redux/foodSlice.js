@@ -5,15 +5,21 @@ const initialState = {
 }
 
 export const foodSlice = createSlice({
-  name: 'food_data',
+  name: 'foodData',
   initialState,
   reducers: {
-    foodData: (state, action) => {
+    data: (state, action) => {
       state.value = action.payload
+    },
+    // searchData: (state, action) => {
+    //   state.searchValue = action.payload.toLowerCase()
+    // },
+    filteredData: (state,action) => {
+      state.filteredValue = action.payload
     }
-  },
+  }
 })
 
-export const { foodData } = foodSlice.actions
+export const { data, searchData, filteredData } = foodSlice.actions
 
 export default foodSlice.reducer
