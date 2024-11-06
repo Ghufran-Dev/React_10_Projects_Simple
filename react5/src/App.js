@@ -10,6 +10,7 @@ import AddUpdateContact from "./Components/AddUpdateContact"
 import useDisclouse from "./hooks/useDisclouse"
 import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import OutOfContacts from "./Components/OutOfContacts"
 const App = () => {
   const [contacts, setContacts] = useState()
   const { onClose, open, isOpen } = useDisclouse()
@@ -66,7 +67,7 @@ const App = () => {
         <Header />
         <Search onClick={isOpen} filterContact={filterContacts}/>
         <div className="">
-          {contacts?.map(contact => (
+          {contacts.length <=0?<OutOfContacts/>: contacts?.map(contact => (
             <ContactCard key={contact.id} contact={contact} />
           ))}
         </div>
