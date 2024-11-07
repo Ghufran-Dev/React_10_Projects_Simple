@@ -1,8 +1,10 @@
-import SideNav from "../Components/SideNav"
+import DashboardLayout from "../Components/DashboardLayout"
 const Dashboard = () => {
   return (
     <div>
-      <SideNav/>
+      <DashboardLayout title={"Dashboard"} >
+        sdfljasldfjlj
+      </DashboardLayout>
     </div>
   )
 }
