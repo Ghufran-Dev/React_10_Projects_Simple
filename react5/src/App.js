@@ -67,7 +67,7 @@ const App = () => {
         <Header />
         <Search onClick={isOpen} filterContact={filterContacts}/>
         <div className="">
-          {contacts.length <=0?<OutOfContacts/>: contacts?.map(contact => (
+          {contacts && contacts.length <=0?<OutOfContacts/>: contacts?.map(contact => (
             <ContactCard key={contact.id} contact={contact} />
           ))}
         </div>
