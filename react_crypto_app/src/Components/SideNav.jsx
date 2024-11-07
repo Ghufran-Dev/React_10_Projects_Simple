@@ -1,7 +1,7 @@
 
 const SideNav = () => {
   return (
-    <div>SideNav</div>
+    <div className="text-[2rem]">SideNav</div>
   )
 }
 
