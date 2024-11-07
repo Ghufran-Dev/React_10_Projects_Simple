@@ -1,7 +1,6 @@
 import { AiOutlineClose } from "react-icons/ai"
 import { createPortal } from "react-dom"
 const Model = ({ open, onClose, children }) => {
-  console.log(onClose);
 
   return createPortal(
     <>
