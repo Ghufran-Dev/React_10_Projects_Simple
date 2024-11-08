@@ -7,7 +7,7 @@ const TopNav = ({title}) => {
         setIsOpen(pre => !isOpen)
     }
     return (
-        <div className="shadow-lg">
+        <div className="shadow-lg bg-white">
             <div className="container text-[2rem] flex justify-between py-10">
                 <h1>{title}</h1>
 
