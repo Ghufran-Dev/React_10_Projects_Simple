@@ -2,13 +2,18 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 
 const Tabs = () => {
   return (
-    <TabGroup>
-      <TabList className={"bg-transparent flex justify-end gap-4 px-2 mt-4"}>
-        <Tab className={"bg-gray-300 p-2 rounded-lg"}>1H</Tab>
-        <Tab className={"bg-gray-300 p-2 rounded-lg font-semibold"}>1D</Tab>
-        <Tab className={"bg-gray-300 p-2 rounded-lg"}>1W</Tab>
-        <Tab className={"bg-gray-300 p-2 rounded-lg"}>1M</Tab>
+    <TabGroup className={"flex justify-end"}>
+      <TabList className={"bg-gray-200 flex gap-4 border mt-4 rounded-lg"}>
+      {['1H','1D','1W', '1M']?.map((v)=>(
+        <Tab key={v} className={'data-[selected]:bg-white p-2 data-[selected]:font-medium'}>{v}</Tab>
+      ))}
+    
       </TabList>
+      {/* <TabPanels>
+        <TabPanel>Content 1</TabPanel>
+        <TabPanel>Content 2</TabPanel>
+        <TabPanel>Content 3</TabPanel>
+      </TabPanels> */}
     </TabGroup>
   )
 }

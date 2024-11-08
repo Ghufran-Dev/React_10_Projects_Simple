@@ -51,7 +51,10 @@ ul{
 
 /*git reset HEAD~1
 git push -f origin main */
-
+.bgImg{
+    background-image: url('../public/dot_bg.svg');
+    background-color: white;
+}
 
 @media (max-width:1024px){
     html{
@@ -61,6 +64,10 @@ git push -f origin main */
 @media (max-width:768px){
     html{
         font-size: 45%;
+    }
+    .res{
+        flex-direction: column;
+        gap: 2rem;
     }
 }
 @media (max-width:550px){

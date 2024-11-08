@@ -16,9 +16,9 @@ const SideNav = () => {
     }
   ]
   return (
-    <div className="text-[2rem] w-[17%] h-screen flex flex-col justify-between shadow-lg shadow-gray-400">
+    <div className="text-[2rem] w-[17%] h-screen flex flex-col justify-between">
       <div className="flex flex-col gap-6 px-4">
-        <h1 className="text-[3rem] text-violet-900 font-medium mt-10 ml-10">@Crypto App</h1>
+        <h1 className="text-[3rem] text-violet-900 font-medium mt-10 ml-10 text-nowrap">@Crypto App</h1>
         {navList?.map((item, i) => (
           <div key={i} className="flex items-center gap-6 text-gray-500 hover:text-black hover:bg-gray-200 px-6 py-4 rounded-lg">
             <item.icon />

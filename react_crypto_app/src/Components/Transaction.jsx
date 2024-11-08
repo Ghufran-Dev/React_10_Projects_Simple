@@ -56,6 +56,7 @@ const Transaction = () => {
                         </div>
                     </Fragment>
                 ))}
+                            <button className="bg-gray-300 py-4 text-[1.4rem] font-semibold hover:opacity-80 rounded-lg">View All</button>
             </div>
         </div>
     )
