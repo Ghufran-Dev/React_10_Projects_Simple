@@ -1,6 +1,7 @@
-import { FaDove, FaMinusCircle, FaPlusCircle } from "react-icons/fa"
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa"
 import { GoArrowUpRight } from "react-icons/go";
 import Button from "./Button";
+import Tabs from "./Tabs";
 const PriceSection = () => {
     const timeStamp = ["7:15 PM", "8:55 PM", "9:45 PM", "1:15 AM", "4:55 AM"]
     return (
@@ -22,7 +23,9 @@ const PriceSection = () => {
                     } />
                 </div>
             </div>
-
+            <div className="text-[1.4rem]">
+                <Tabs />
+            </div>
             <div>
                 <img src="/graph.svg" alt="graph" width={'100%'} />
             </div>

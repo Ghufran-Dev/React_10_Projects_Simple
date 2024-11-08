@@ -1,9 +1,12 @@
 import DashboardLayout from "../Components/DashboardLayout"
+import PortfolioSection from "../Components/PortfolioSection"
+import PriceSection from "../Components/PriceSection"
 const Dashboard = () => {
   return (
     <div>
       <DashboardLayout title={"Dashboard"} >
-        sdfljasldfjlj
+        <PortfolioSection/>
+        <PriceSection/>
       </DashboardLayout>
     </div>
   )
