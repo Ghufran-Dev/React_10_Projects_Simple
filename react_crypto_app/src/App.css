@@ -56,9 +56,16 @@ git push -f origin main */
     background-color: white;
 }
 
+.myGrid{
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
 @media (max-width:1024px){
     html{
         font-size: 55%;
+    }
+    .myGrid{
+        grid-template-columns: 24% 76%;
     }
 }
 @media (max-width:768px){
@@ -68,6 +75,12 @@ git push -f origin main */
     .res{
         flex-direction: column;
         gap: 2rem;
+    }
+    
+}
+@media (max-width:760px){
+    .myGrid{
+        grid-template-columns: 100%;
     }
 }
 @media (max-width:550px){

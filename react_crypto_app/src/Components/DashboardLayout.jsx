@@ -1,13 +1,20 @@
+import useDisclosure from "../Custome_hook/useDisclosure";
 import Drawer from "./Drawer"
 import SideNav from "./SideNav"
 import TopNav from "./TopNav"
+import { FaBars } from 'react-icons/fa';
+
 const DashboardLayout = ({ title, children }) => {
+  const {open, onClose, onOpen} = useDisclosure()
+  console.log(open)
   return (
-    <div className="flex items-start">
+    <div className="myGrid">
+    <div className="hidden md:flex">
       <SideNav />
-      {/* <Drawer/> */}
+    </div>
+      <Drawer open={open} onClose={onClose} onOpen={onOpen}/>
       <div className="flex-grow bg-gray-300 h-screen">
-        <TopNav title={title} />
+        <TopNav title={title} icon={<FaBars/>} onOpen={onOpen}/>
 
         <div className="container">
           {children}

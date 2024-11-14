@@ -24,7 +24,7 @@ const Transaction = () => {
             amount: "+pk81,123.10"
         },
         {
-            id: '3',
+            id: '4',
             icon: FaRupeeSign,
             text: "PK Deposit",
             timestamp: "2022-06-09 7:06 PM",
@@ -36,10 +36,10 @@ const Transaction = () => {
             <h1 className='text-[1.6rem] text-gray-500 font-semibold'>Recent Transactions</h1>
             <div className="flex justify-between flex-col h-[100%] py-6">
                 {transaction?.map((v, i) => (
-                    <Fragment>
+                    <Fragment key={v.id}>
                         {i !== 0 && <hr />}
 
-                        <div key={i} className="flex justify-between">
+                        <div className="flex justify-between">
                             <div className="flex">
                                 <div>
                                     <div className="bg-gray-200 p-4 rounded-full justify-between"><v.icon /></div>

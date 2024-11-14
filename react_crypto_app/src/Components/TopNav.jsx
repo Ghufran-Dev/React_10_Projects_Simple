@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { CgProfile } from "react-icons/cg";
 
-const TopNav = ({title}) => {
+const TopNav = ({title, icon, onOpen}) => {
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => {
         setIsOpen(pre => !isOpen)
@@ -9,7 +9,7 @@ const TopNav = ({title}) => {
     return (
         <div className="shadow-lg bg-white">
             <div className="container text-[2rem] flex justify-between py-10">
-                <h1>{title}</h1>
+                <div className="flex items-center gap-4" ><div className="flex md:hidden" onClick={onOpen}>{icon}</div><h1>{title}</h1></div>
 
                 <button onClick={toggle}>
                    <CgProfile fontSize={'3rem'}/>
