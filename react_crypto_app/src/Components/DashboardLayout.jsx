@@ -6,7 +6,6 @@ import { FaBars } from 'react-icons/fa';
 
 const DashboardLayout = ({ title, children }) => {
   const {open, onClose, onOpen} = useDisclosure()
-  console.log(open)
   return (
     <div className="myGrid">
     <div className="hidden md:flex">
