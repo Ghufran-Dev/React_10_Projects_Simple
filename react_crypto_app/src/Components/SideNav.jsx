@@ -1,9 +1,14 @@
 import { IoGrid } from "react-icons/io5";
 import { GrTransaction } from "react-icons/gr";
 import { BiSupport } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const SideNav = () => {
+  const location = useLocation()
+  const isActiveLink = (link) => {
+    return location.pathname === link
+  }
+  
   const navList = [
     {
       icon: IoGrid,
@@ -22,7 +27,7 @@ const SideNav = () => {
         <h1 className="text-[3rem] text-violet-900 font-medium mt-10 ml-10 text-nowrap">@Crypto App</h1>
         {navList?.map((item, i) => (
           <Link key={i} to={item.link}>
-            <div className="flex items-center gap-6 text-gray-500 hover:text-black hover:bg-gray-200 px-6 py-4 rounded-lg">
+            <div className={`${isActiveLink(item.link)?"text-gray-900 bg-gray-200":"bg-transparent"} flex items-center gap-6 text-gray-500 hover:text-black hover:bg-gray-200 px-6 py-4 rounded-lg`}>
               <item.icon />
               <p>{item.text}</p>
             </div>
@@ -30,7 +35,7 @@ const SideNav = () => {
         ))}
       </div>
       <Link to="/support">
-        <div className="flex items-center gap-6 text-gray-500 hover:text-black hover:bg-gray-200 px-6 py-4 rounded-lg mb-4">
+        <div className={`${isActiveLink("/support")?"text-gray-900 bg-gray-200":"bg-transparent"} flex items-center gap-6 text-gray-500 hover:text-black hover:bg-gray-200 px-6 py-4 rounded-lg mb-4`}>
           <BiSupport />
           <p>Support</p>
         </div>
