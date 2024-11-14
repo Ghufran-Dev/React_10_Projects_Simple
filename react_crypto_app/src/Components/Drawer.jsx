@@ -1,8 +1,8 @@
 'use client'
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle, TransitionChild } from '@headlessui/react'
+import { Dialog, DialogBackdrop, DialogPanel, TransitionChild } from '@headlessui/react'
 import { ImCross } from "react-icons/im";
 import SideNav from './SideNav';
-const Drawer = ({open, onClose, onOpen}) => {
+const Drawer = ({open, onClose}) => {
  
 
   return (

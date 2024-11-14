@@ -12,7 +12,7 @@ const DashboardLayout = ({ title, children }) => {
     <div className="hidden md:flex">
       <SideNav />
     </div>
-      <Drawer open={open} onClose={onClose} onOpen={onOpen}/>
+      <Drawer open={open} onClose={onClose} />
       <div className="flex-grow bg-gray-300 h-screen">
         <TopNav title={title} icon={<FaBars/>} onOpen={onOpen}/>
 
