@@ -1,6 +1,6 @@
 import Button from '../Components/Button'
 import { Link } from "react-router-dom"
-import { Formik } from "formik"
+import { Formik } from "formik" 
 const SignUp = () => {
     return (
         <div className='flex items-center h-screen'>
