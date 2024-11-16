@@ -1,17 +1,19 @@
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import DashboardLayout from "../Components/DashboardLayout"
 import Info from "../Components/Info"
 import PortfolioSection from "../Components/PortfolioSection"
 import PriceSection from "../Components/PriceSection"
 import Transaction from "../Components/Transaction"
-import { fetchExample } from "../Api/query/exampleQuery"
+// import { fetchExample } from "../Api/query/exampleQuery"
+// import { useQuery } from "react-query"
 const Dashboard = ({}) => {
 
-  useEffect(() => {
-    const data =  fetchExample()
-    console.log("sdjlfjsjl", process.env.REACT_APP_BACKEND_URL);
-    console.log(data)
-  }, [])
+
+  // useEffect(() => {
+  //   const data =  fetchExample()
+  //   console.log("sdjlfjsjl", process.env.REACT_APP_BACKEND_URL);
+  //   console.log(data)
+  // }, [])
   return (
     <div>
       <DashboardLayout title={"Dashboard"} >

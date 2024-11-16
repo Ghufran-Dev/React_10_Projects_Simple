@@ -18,6 +18,8 @@ import ResetPassword from "./Pages/Auth/ResetPassword";
 
 import { QueryClient, QueryClientProvider } from "react-query"
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { ToastContainer } from "react-toastify";
+ import 'react-toastify/dist/ReactToastify.css'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,6 +73,7 @@ const App = () => {
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
         <ReactQueryDevtools initialIsOpen={false} />
+        <ToastContainer position="bottom-center" className={'text-4xl'} theme="colored"/>
       </QueryClientProvider>
     </div>
   )

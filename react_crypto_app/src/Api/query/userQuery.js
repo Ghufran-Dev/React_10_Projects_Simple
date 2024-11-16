@@ -1,10 +1,10 @@
-import Axios from "../axios"
+import Ax from "../axios"
 
 const USER_URL = "/user"
 
 export const signInUser = async ({email, password}) => {
     try {
-        const { data } = await Axios.post(`${USER_URL}/signin`,{
+        const { data } = await Ax.post(`${USER_URL}/signin`,{
             email,
             password,
         })
