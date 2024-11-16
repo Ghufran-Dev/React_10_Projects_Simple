@@ -1,10 +1,11 @@
-import Axios from "axios"
+import Ax from "../axios"
 export const fetchExample = async () => {
     try {
-        const {data} = Axios.get("/")
+        const  { data }  = await Ax.get("/")
         return data
     } catch (error) {
-        throw Error('Unable to fetch')
+        throw Error(error.response.data.message)
+        // throw Error("something went wrong")
         
     }
 }

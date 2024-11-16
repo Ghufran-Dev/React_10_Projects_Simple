@@ -2,11 +2,19 @@ import Button from '../../Components/Button'
 import { Link } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
+import { useMutation } from 'react-query'
+import { signInUser } from '../../Api/query/userQuery'
 const signUpValidationSchema = Yup.object({
   email: Yup.string().email('Invalid email').required('Email is Required'),
   password: Yup.string().min(6, 'Password must be at least 6 characteristics').required('Password is required'),
 })
 const LogIn = () => {
+
+  const {mutate, isLoading} = useMutation({
+    mutationKey:["signin"],
+    mutationFn: signInUser,
+  })
+
   return (
     <div className='flex items-center h-screen'>
       <div className='border shadow-xl rounded-xl w-[65rem] mx-auto py-4 px-8'>
@@ -22,7 +30,11 @@ const LogIn = () => {
             password: "",
           }}
           onSubmit={(values) => {
-            console.log(values)
+            // console.log(values)
+            mutate({
+              email: values.email,
+              password: values.password
+            })
           }}
         >
           {() => (
@@ -64,7 +76,7 @@ const LogIn = () => {
                   </div>
                   <div className="text-purple-700 text-xl font-medium">Forget Password?</div>
                 </div>
-                <Button txt={"Log in"} signUp={true} type={'submit'} />
+                <Button isLoading={isLoading} txt={"Log in"} signUp={true} type={'submit'} />
                 <Link to={'/signUp'}>
                   <Button txt={"Create New Account"} signIn={true} />
                 </Link>

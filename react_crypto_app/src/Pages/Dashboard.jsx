@@ -5,12 +5,12 @@ import PortfolioSection from "../Components/PortfolioSection"
 import PriceSection from "../Components/PriceSection"
 import Transaction from "../Components/Transaction"
 import { fetchExample } from "../Api/query/exampleQuery"
-const Dashboard = () => {
+const Dashboard = ({}) => {
 
   useEffect(() => {
-    const data = fetchExample()
-    console.log(data);
-
+    const data =  fetchExample()
+    console.log("sdjlfjsjl", process.env.REACT_APP_BACKEND_URL);
+    console.log(data)
   }, [])
   return (
     <div>
