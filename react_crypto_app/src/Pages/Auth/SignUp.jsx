@@ -1,7 +1,10 @@
 import Button from '../../Components/Button'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
+import { signUpUser } from '../../Api/query/userQuery'
+import { useMutation } from 'react-query'
+import { toast } from 'react-toastify'
 const signUpValidationSchema = Yup.object({
     name: Yup.string().required('Name is Required'),
     lname: Yup.string().required('Name is Required'),
@@ -10,6 +13,22 @@ const signUpValidationSchema = Yup.object({
     rpassword: Yup.string().oneOf([Yup.ref('password', undefined)], 'password must match').required('repeat password is required')
 })
 const SignUp = () => {
+
+    const navigate = useNavigate()
+
+    const { mutate, isLoading } = useMutation({
+        mutationKey: ["signup"],
+        mutationFn: signUpUser,
+        onSuccess: (data) => {
+            navigate("/register-email")
+        },
+        onError: (error) => {
+          return(
+              toast.error(error.message)
+          )
+      }
+      })
+
     return (
         <div className='flex items-center h-screen'>
             <div className='border shadow-xl rounded-xl w-[65rem] mx-auto py-4 px-8'>
@@ -29,7 +48,12 @@ const SignUp = () => {
                         checkbox: false
                     }}
                     onSubmit={(values) => {
-                        console.log(values)
+                        mutate({
+                          firstName: values.name,  
+                          lastName: values.lname,  
+                          email: values.email,  
+                          password: values.password,  
+                        })
                     }}
                 >
                     {() => (
@@ -94,7 +118,7 @@ const SignUp = () => {
                                         I agree with <span className="text-purple-700">Terms & Conditions</span>
                                     </label>
                                 </div>
-                                <Button txt={"Create Account"} signUp={true} />
+                                <Button isLoading={isLoading} txt={"Create Account"} signUp={true} />
 
                                 <div className='text-[1.3rem] text-gray-700 text-center'>
                                     Already have an account? <Link to='/logIn'><span className='text-purple-700 font-medium'>Login</span></Link>

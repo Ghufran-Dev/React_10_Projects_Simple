@@ -13,3 +13,16 @@ export const signInUser = async ({email, password}) => {
         throw Error(error.response.data.message)        
     }
 }
+export const signUpUser = async ({email, password, firstName, lastName}) => {
+    try {
+        const { data } = await Ax.post(`${USER_URL}/signup`,{
+            email,
+            password,
+            firstName,
+            lastName,
+        })
+        return data
+    } catch (error) {
+        throw Error(error.response.data.message)        
+    }
+}
