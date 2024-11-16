@@ -1,4 +1,4 @@
-import Button from '../Components/Button'
+import Button from '../../Components/Button'
 import { Link } from "react-router-dom"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
