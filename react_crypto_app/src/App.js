@@ -15,6 +15,9 @@ import SuccessfullySent from "./Pages/Auth/SuccessfullySent";
 import ResetPasswordSuccess from "./Pages/Auth/ResetPasswordSuccess";
 import ResetPassword from "./Pages/Auth/ResetPassword";
 
+
+import { QueryClientProvider } from "react-query"
+import { ReactQueryDevtools } from 'react-query/devtools'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -62,9 +65,13 @@ const router = createBrowserRouter([
   },
 ]);
 const App = () => {
+  const queryClient = new QueryClient()
   return (
     <div>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </div>
   )
 }
