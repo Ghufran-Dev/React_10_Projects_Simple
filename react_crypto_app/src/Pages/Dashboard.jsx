@@ -1,9 +1,17 @@
+import { useEffect } from "react"
 import DashboardLayout from "../Components/DashboardLayout"
 import Info from "../Components/Info"
 import PortfolioSection from "../Components/PortfolioSection"
 import PriceSection from "../Components/PriceSection"
 import Transaction from "../Components/Transaction"
+import { fetchExample } from "../Api/query/exampleQuery"
 const Dashboard = () => {
+
+  useEffect(() => {
+    const data = fetchExample()
+    console.log(data);
+
+  }, [])
   return (
     <div>
       <DashboardLayout title={"Dashboard"} >

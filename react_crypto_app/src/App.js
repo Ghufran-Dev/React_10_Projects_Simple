@@ -16,7 +16,7 @@ import ResetPasswordSuccess from "./Pages/Auth/ResetPasswordSuccess";
 import ResetPassword from "./Pages/Auth/ResetPassword";
 
 
-import { QueryClientProvider } from "react-query"
+import { QueryClient, QueryClientProvider } from "react-query"
 import { ReactQueryDevtools } from 'react-query/devtools'
 const router = createBrowserRouter([
   {
