@@ -15,7 +15,7 @@ const LogIn = () => {
   const { mutate, isLoading } = useMutation({
     mutationKey: ["signin"],
     mutationFn: signInUser,
-    onSuccess: (data) => { },
+    onSuccess: (data) => {},
     onError: (error) => {
       return(
           toast.error(error.message)

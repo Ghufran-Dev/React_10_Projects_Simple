@@ -8,12 +8,17 @@ import Transaction from "../Components/Transaction"
 // import { useQuery } from "react-query"
 const Dashboard = ({}) => {
 
+  // const exampleQuery = useQuery({
+  //   queryKey:["example"],
+  //   queryFn:fetchExample
+  // })
 
   // useEffect(() => {
   //   const data =  fetchExample()
   //   console.log("sdjlfjsjl", process.env.REACT_APP_BACKEND_URL);
   //   console.log(data)
   // }, [])
+  // if (exampleQuery.isLoading) return <div>Loading ... </div> 
   return (
     <div>
       <DashboardLayout title={"Dashboard"} >

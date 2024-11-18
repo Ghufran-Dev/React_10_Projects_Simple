@@ -5,6 +5,7 @@ import * as Yup from "yup"
 import { signUpUser } from '../../Api/query/userQuery'
 import { useMutation } from 'react-query'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
 const signUpValidationSchema = Yup.object({
     name: Yup.string().required('Name is Required'),
     lname: Yup.string().required('Name is Required'),
@@ -14,20 +15,24 @@ const signUpValidationSchema = Yup.object({
 })
 const SignUp = () => {
 
+    const [email, setEmail] = useState("")
     const navigate = useNavigate()
 
     const { mutate, isLoading } = useMutation({
         mutationKey: ["signup"],
         mutationFn: signUpUser,
         onSuccess: (data) => {
-            navigate("/register-email")
+            
+            if (email !== "") {
+                navigate(`/register-email/${email}`)
+            }
         },
         onError: (error) => {
-          return(
-              toast.error(error.message)
-          )
-      }
-      })
+            return (
+                toast.error(error.message)
+            )
+        }
+    })
 
     return (
         <div className='flex items-center h-screen'>
@@ -35,7 +40,7 @@ const SignUp = () => {
                 <div>
                     <h1 className='text-[3.2rem] mb-4'>Welcome to Crypto App</h1>
                     <p className='text-gray-700 text-[1.6rem]'>Create a free account by filling data below</p>
-                </div> 
+                </div>
 
                 <Formik
                     validationSchema={signUpValidationSchema}
@@ -48,11 +53,12 @@ const SignUp = () => {
                         checkbox: false
                     }}
                     onSubmit={(values) => {
+                        setEmail(values.email)
                         mutate({
-                          firstName: values.name,  
-                          lastName: values.lname,  
-                          email: values.email,  
-                          password: values.password,  
+                            firstName: values.name,
+                            lastName: values.lname,
+                            email: values.email,
+                            password: values.password,
                         })
                     }}
                 >

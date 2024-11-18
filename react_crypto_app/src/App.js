@@ -42,11 +42,11 @@ const router = createBrowserRouter([
     element: <LogIn />
   },
   {
-    path: "/register-email",
+    path: "/register-email/:email",
     element: <RegisterEmailVerify />
   },
   {
-    path: "/register-success",
+    path: "/email-verify/:token",
     element: <RegisterSuccess />
   },
   {

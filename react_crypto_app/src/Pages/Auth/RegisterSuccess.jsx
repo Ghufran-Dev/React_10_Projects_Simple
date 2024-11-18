@@ -1,11 +1,27 @@
 import { BsPatchCheckFill } from 'react-icons/bs'
 import Button from '../../Components/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useQuery } from "react-query"
+import { verifyEmailAddressSignup } from '../../Api/query/userQuery'
+import {toast } from "react-toastify"
 const RegisterSuccess = () => {
+  const navigate = useNavigate()
+  const {token} = useParams()
+  const {isSuccess, isLoading }= useQuery({
+    queryKey:["verify-email-token"],
+    queryFn: () => verifyEmailAddressSignup({token}),
+    enabled: !!token,
+    onError: (error) =>{
+      return (toast.error(error.message), 
+      navigate("/signup"))
+    }
+  })
+
+  if(isLoading) return <div>Loading...</div>
   return (
     <div className='flex items-center h-screen'>
 
-      <div className='flex flex-col gap-10 rounded-xl shadow-xl justify-center items-center max-w-[50%] mx-auto border border-gray-500 p-6 text-gray-800'>
+      {isSuccess && <div className='flex flex-col gap-10 rounded-xl shadow-xl justify-center items-center max-w-[50%] mx-auto border border-gray-500 p-6 text-gray-800'>
 
         <div className='text-purple-800'>
           <BsPatchCheckFill fontSize={'5rem'} />
@@ -20,7 +36,7 @@ const RegisterSuccess = () => {
           </Link>
         </div>
 
-      </div>
+      </div>}
     </div>
   )
 }

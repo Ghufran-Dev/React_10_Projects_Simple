@@ -1,6 +1,35 @@
 import { MdEmail } from 'react-icons/md'
 import Button from '../../Components/Button'
+import { useParams } from 'react-router-dom'
+import { sendEmailVerification } from '../../Api/query/userQuery'
+import { toast } from 'react-toastify'
+import { useMutation } from 'react-query'
+import { useEffect } from 'react'
 const RegisterEmailVerify = () => {
+  const {email} = useParams()
+
+  const { mutate, isLoading } = useMutation({
+    mutationKey: ["sendEmailVerification"],
+    mutationFn: sendEmailVerification,
+    onSuccess: (data) => {
+      console.log(data);
+      
+    },
+    onError: (error) => {
+      return (
+        toast.error(error.message)
+      )
+    },
+    enabled: !!email 
+  })
+
+  useEffect(()=>{
+    mutate({email})
+  }, [email])
+
+  if (email === ""){
+    return <div className='flex items-center justify-center text-4xl h-screen'>Invalid Email</div>
+  }
   return (
     <div className='flex items-center h-screen'>
 
@@ -12,9 +41,9 @@ const RegisterEmailVerify = () => {
 
       <h1 className='text-[2.6rem] font-medium'>Email Verfication</h1>
 
-      <p className='text-[1.6rem] text-center'>Lorem, ipsum dolor sit amet consectetur adipisicing elit <span className='font-semibold'>Jenny.willson@gmail.com</span> debitis saepe, blanditiis praesentium natus numquam sed impedit.</p>
+      <p className='text-[1.6rem] text-center'>We have sent you an email verification to <span className='font-semibold'>{email}</span>. If you didn't receive it, click the button below.</p>
 
-      <Button txt={"Re-Send Email"} signIn={true}/>
+      <Button isLoading={isLoading} txt={"Re-Send Email"} signIn={true} onClick={()=>mutate({email})}/>
     </div>
 </div>
   )
